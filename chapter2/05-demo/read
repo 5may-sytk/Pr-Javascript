@@ -1,0 +1,53 @@
+# Javascriptの記述
+
+## HTMLファイルに記述
+
+HTMLのファイル内に直接JavaScriptを「<script>~</script>」の間にコードを記述する
+
+<head><body>内でも記述可能
+
+```jsx
+<script>
+	//	
+</script>
+```
+
+- 同じJavaScriptを複数のページを適用する場合
+    
+    すべてのHTMLファイルに記載する必要が出てくる
+    
+
+## JavaScriptファイルを作成
+
+拡張子「js」を付けてファイルを作成し、その中にコードを記述する。
+
+HTMLファイル内に<script>タグを記述する
+
+```jsx
+<script src="js/〇〇.js" defer></script>
+```
+
+### defer属性
+
+defer属性を付けると非同期通信化させ、読み込みを速くすることができる
+
+### 非同期通信化で読み込みが早くなる？
+
+- **<head>タグ内のJavaScriptを読み込ませる場合**
+    
+    そこに到達した時点でHTMLの解析が**一旦停止**され、JavaScriptの読み込みと実行が行われる。その後残りのHTMLの解析が続けられる
+    
+- **<body>タグ内のJavaScriptを読み込ませる場合**
+    
+    <body>末尾に<script>を記述した場合、HTMLの解析が終了したところで
+    
+    JavaScriptの読み込みと実行が行われる。
+    しかし、読み込み時間が短縮されているわけではない
+    
+- **<head>タグ内でdeferを付けてJavaScriptを読み込ませる場合**
+    
+    <script>タグにdefer属性を指定すると、
+    
+    HTMLの解析を中断することなくJavaScriptの読み込みが同時に行われる。
+    
+    HTMLの解析が終了した後にJavaScriptが実行される
